@@ -16,23 +16,21 @@ module.exports = {
     }
   },
 
-  //user detail
-
-  //   readDetailHistory: async (req, res) => {
-  //     try {
-  //       const { userId } = req.params;
-  //       const userGameHistory = await user_game_history.findOne({
-  //         where: { id: userId },
-  //       });
-  //       return res.status(200).json({
-  //         status: "success",
-  //         mesage: "Read Data",
-  //         data: userGameHistory,
-  //       });
-  //     } catch (error) {
-  //       res.json(error).status(422);
-  //     }
-  //   },
+  readDetailHistory: async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const userGameHistory = await user_game_history.findOne({
+        where: { id: userId },
+      });
+      return res.status(200).json({
+        status: "success",
+        mesage: "Read Data",
+        data: userGameHistory,
+      });
+    } catch (error) {
+      res.json(error).status(422);
+    }
+  },
   createUserHistory: async (req, res) => {
     try {
       const { id_user, time_list, score } = req.body;
